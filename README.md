@@ -1,14 +1,13 @@
 ASCII Table Writer
 =========
 
-[![Build Status](https://travis-ci.org/olekukonko/tablewriter.png?branch=master)](https://travis-ci.org/olekukonko/tablewriter)
-[![Total views](https://img.shields.io/sourcegraph/rrc/github.com/olekukonko/tablewriter.svg)](https://sourcegraph.com/github.com/olekukonko/tablewriter)
-[![Godoc](https://godoc.org/github.com/olekukonko/tablewriter?status.svg)](https://godoc.org/github.com/olekukonko/tablewriter)
+[![Build Status](https://travis-ci.org/patcharp/tablewriter.png?branch=master)](https://travis-ci.org/patcharp/tablewriter)
+[![Total views](https://img.shields.io/sourcegraph/rrc/github.com/patcharp/tablewriter.svg)](https://sourcegraph.com/github.com/patcharp/tablewriter)
 
+This project was fork from https://github.com/olekukonko/tablewriter to add Thai Unicode compatibility.
 Generate ASCII table on the fly ...  Installation is simple as
 
-    go get github.com/olekukonko/tablewriter
-
+    go get github.com/patcharp/tablewriter
 
 #### Features
 - Automatic Padding
@@ -404,7 +403,7 @@ import (
     "strings"
     "fmt"
 
-    "github.com/olekukonko/tablewriter"
+    "github.com/patcharp/tablewriter"
 )
 
 func main() {
@@ -420,12 +419,3 @@ func main() {
     fmt.Println(tableString.String())
 }
 ```
-
-#### TODO
-- ~~Import Directly from CSV~~  - `done`
-- ~~Support for `SetFooter`~~  - `done`
-- ~~Support for `SetBorder`~~  - `done`
-- ~~Support table with uneven rows~~ - `done`
-- ~~Support custom alignment~~
-- General Improvement & Optimisation
-- `NewHTML` Parse table from HTML
