@@ -18,7 +18,8 @@ import (
 var ansi = regexp.MustCompile("\033\\[(?:[0-9]{1,3}(?:;[0-9]{1,3})*)?[m|K]")
 
 func DisplayWidth(str string) int {
-	return runewidth.StringWidth(ansi.ReplaceAllLiteralString(str, ""))
+	str = ansi.ReplaceAllLiteralString(str, "")
+	return runewidth.StringWidth(str) - floatingCharCount(str)
 }
 
 // Simple Condition for string
@@ -90,4 +91,18 @@ func PadLeft(s, pad string, width int) string {
 		return strings.Repeat(string(pad), gap) + s
 	}
 	return s
+}
+
+// Floating char for unicode char
+func floatingCharCount(str string) int {
+	floatingChar := map[string][]string{
+		"thai": []string{"ิ", "ี", "ึ", "ื", "ุ", "ู", "่", "้", "๊", "๋", "์"},
+	}
+	count := 0
+	for _, l := range floatingChar {
+		for _, v := range l {
+			count += strings.Count(str, v)
+		}
+	}
+	return count
 }
